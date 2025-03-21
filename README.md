@@ -14,6 +14,17 @@ Contributers:
 - Sepher
 - Trevor
 
+## Folder Structure
+.
+├── model.py 
+├── data
+│   ├── train
+        ├── trainRage
+        ├── trainOther
+│   └── test
+        ├── testRage
+        ├── testOther
+
 ## Installation
 Via https
 ```bash
