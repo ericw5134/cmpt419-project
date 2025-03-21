@@ -15,15 +15,15 @@ Contributers:
 - Trevor
 
 ## Folder Structure
-.
-├── model.py 
-├── data
-│   ├── train
-        ├── trainRage
-        ├── trainOther
-│   └── test
-        ├── testRage
-        ├── testOther
+- .
+- our code
+- **data**: Directory containing data files.
+  - **train**: Directory for training data.
+    - **trainRage**: Directory for rage data for training
+    - **trainOther**: Directory for other data for training
+  - **test**: Directory for testing data.
+    - **testRage**: Directory for rage data for testing
+    - **testRage**: Directory for other data for testing
 
 ## Installation
 Via https
