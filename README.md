@@ -21,9 +21,11 @@ Contributers:
   - **train**: Directory for training data.
     - **trainRage**: Directory for rage data for training
     - **trainOther**: Directory for other data for training
+    - **trainAudio**: Directory for audio data for training
   - **test**: Directory for testing data.
     - **testRage**: Directory for rage data for testing
     - **testRage**: Directory for other data for testing
+    - **testAudio**: Directory for audio data for testing
 
 ## Installation
 Via https
