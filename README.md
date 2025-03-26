@@ -20,11 +20,15 @@ Contributers:
 - **data**: Directory containing data files.
   - **train**: Directory for training data.
     - **trainRage**: Directory for rage data for training
-    - **trainOther**: Directory for other data for training
+    - **trainFear**: Directory for fear data for training
+    - **trainExcitment**: Directory for fear data for training
+    - **trainFrustration**: Directory for fear data for training
     - **trainAudio**: Directory for audio data for training
   - **test**: Directory for testing data.
     - **testRage**: Directory for rage data for testing
-    - **testRage**: Directory for other data for testing
+    - **testFear**: Directory for other data for testing
+    - **testExcitment**: Directory for other data for testing
+    - **testFrustration**: Directory for other data for testing
     - **testAudio**: Directory for audio data for testing
 
 ## Installation
