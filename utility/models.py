@@ -55,4 +55,3 @@ class AudioCNN(nn.Module):
         x = x.view(x.size(0), -1)  # flatten
         x = F.relu(self.fc1(x))
         return self.fc2(x)
-
