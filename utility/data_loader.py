@@ -5,32 +5,35 @@ from torchvision import transforms
 from PIL import Image
 import torchaudio
 
-from utility.frame_sampler import sample_evenly_spaced_frames
+from .frame_sampler import sample_evenly_spaced_frames
 
 class EmotionDataset(Dataset):
     def __init__(self, root_dir, transform=None, audio_transform=None):
         """
         Args:
-            root_dir (str): Root path to either train or test folder
-            transform (callable, optional): Optional transform to be applied to images
-            audio_transform (callable, optional): Optional transform to be applied to audio
+            root_dir (str): Path to either data/train or data/test
+            transform (callable, optional): Transform to be applied to images
+            audio_transform (callable, optional): Transform to be applied to audio
         """
         self.root_dir = root_dir
         self.transform = transform
         self.audio_transform = audio_transform
         self.data = []
-        self.label_to_idx = {'Rage': 0, 'Excitement': 1, 'Fear': 2, 'Frustration': 3}
 
-        emotions = os.listdir(os.path.join(root_dir, "Audio"))
-        for folder in os.listdir(os.path.join(root_dir, "Audio")):
-            audio_path = os.path.join(root_dir, "Audio", folder, f"{folder}.wav")
+        # detect 'trainAudio' or 'testAudio'
+        audio_folder_name = [d for d in os.listdir(root_dir) if "Audio" in d][0]
+        audio_path_root = os.path.join(root_dir, audio_folder_name)
+        split_prefix = audio_folder_name.replace("Audio", "")  # 'train' or 'test'
+
+        for folder in os.listdir(audio_path_root):
+            audio_path = os.path.join(audio_path_root, folder, f"{folder}.wav")
             name, emotion_number = folder.rsplit("_", 1)
             for emotion in ["Rage", "Fear", "Excitement", "Frustration"]:
                 frame_folder_name = f"frames_{folder}"
-                frame_dir = os.path.join(root_dir, emotion, frame_folder_name)
+                frame_dir = os.path.join(root_dir, f"{split_prefix}{emotion}", frame_folder_name)
                 if os.path.isdir(frame_dir):
                     self.data.append((audio_path, frame_dir, emotion))
-                    break  # Found the matching emotion folder
+                    break  # found the matching emotion folder
 
     def __len__(self):
         return len(self.data)
@@ -81,7 +84,10 @@ class EmotionDataset(Dataset):
             blank_frame = self.transform(Image.new('L', (112, 112)))
             frames_tensor = torch.stack([blank_frame] * 20)
 
-        return spectrogram, frames_tensor, self.label_to_idx[label]
+        # for binary classification: Rage = 0, Not Rage = 1
+        binary_label = 0 if label == "Rage" else 1
+        return spectrogram, frames_tensor, binary_label
+
 
 
 

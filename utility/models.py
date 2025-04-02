@@ -1,10 +1,11 @@
 import torch
 import torch.nn as nn
 import torchvision.models as models
+import torch.nn.functional as F
 
 
 class VideoCNN(nn.Module):
-    def __init__(self, num_classes=5):
+    def __init__(self, num_classes=2):
         super(VideoCNN, self).__init__()
         # Use a pretrained ResNet and modify for video
         resnet = models.resnet18(pretrained=True)
@@ -18,7 +19,6 @@ class VideoCNN(nn.Module):
         self.feature_extractor = nn.Sequential(*modules)
 
         # Temporal pooling and classifier
-        self.temporal_pool = nn.AdaptiveAvgPool3d((1, 1, 1))
         self.classifier = nn.Linear(512, num_classes)
 
     def forward(self, x):
@@ -36,11 +36,8 @@ class VideoCNN(nn.Module):
         return self.classifier(features)  # [B, num_classes]
 
 
-import torch.nn as nn
-import torch.nn.functional as F
-
 class AudioCNN(nn.Module):
-    def __init__(self, num_classes=4):
+    def __init__(self, num_classes=2):
         super(AudioCNN, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1))
         self.conv2 = nn.Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1))
