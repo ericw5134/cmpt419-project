@@ -56,6 +56,9 @@ Metrics tracked include loss and binary accuracy. Training data is augmented wit
 
 ## Installation
 
+[Watch this tutorial on how to set up this project](https://youtu.be/V96k9NAlwtY)
+
+
 [Download our dataset here](https://drive.google.com/file/d/1EtoDBcclW2dRN0Sa25p2T6bWJ2Pughg6/view?usp=sharing)
 
 Via https
