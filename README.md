@@ -16,18 +16,25 @@ Contributers:
 
 ## Folder Structure
 - .
-- our code
+- **process_data.ipynb**: Run this file first, splits data into their respective directories
+
+- **train_test_models**: Run this file second, this is our ML model.
+
+- **rage_detection_fusion_train.pt**: Pre-saved training model
+
+- **rage_detection_fusion_test.pt**: Pre-saved testing model
+
 - **data**: Directory containing data files.
   - **train**: Directory for training data.
     - **trainRage**: Directory for rage data for training
     - **trainFear**: Directory for fear data for training
-    - **trainExcitment**: Directory for excitment data for training
+    - **trainExcitement**: Directory for excitement data for training
     - **trainFrustration**: Directory for frustration data for training
     - **trainAudio**: Directory for audio data for training
   - **test**: Directory for testing data.
     - **testRage**: Directory for rage data for testing
     - **testFear**: Directory for fear data for testing
-    - **testExcitment**: Directory for excitment data for testing
+    - **testExcitement**: Directory for excitement data for testing
     - **testFrustration**: Directory for frustration data for testing
     - **testAudio**: Directory for audio data for testing
 
