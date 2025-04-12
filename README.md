@@ -39,6 +39,10 @@ Contributers:
     - **testAudio**: Directory for audio data for testing
 
 ## Installation
+
+[Download our dataset here](https://drive.google.com/file/d/1EtoDBcclW2dRN0Sa25p2T6bWJ2Pughg6/view?usp=sharing)
+
+
 Via https
 ```bash
 git clone https://github.com/ericw5134/cmpt419-project.git
