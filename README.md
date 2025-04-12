@@ -7,8 +7,8 @@
 - [Folder Structure](#folder-structure)
 - [Installation](#installation)
 
-## Project Info
-**RageRadar**: A binary classifier using a multimodal deep learning architecture, used to identify rage using audio and image sequences.
+## Project Info: **RageRadar**
+A binary classifier using a multimodal deep learning architecture, used to identify rage using audio and image sequences.
 
 The dataset includes video and audio samples labeled as Rage, Fear, Frustration, or Excitement.
 Each sample is relabeled as Rage (0) or Not Rage (1) in the model.
@@ -26,6 +26,8 @@ Model Architecture
 
 Training: trained using CrossEntropyLoss with the Adam optimizer (lr = 1e-4) for 20 epochs.
 Metrics tracked include loss and binary accuracy. Training data is augmented with robust error handling to account for missing or corrupted media.
+
+[Check out the project poster!](https://docs.google.com/presentation/d/1Mp0DaInEPkLuOQheBh18BEaPL2bLAPgW/edit?usp=sharing&ouid=103161961133691635191&rtpof=true&sd=true)
 
 ## Contributers:
 - Eric 
